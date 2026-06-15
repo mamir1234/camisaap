@@ -4,47 +4,19 @@ const mangaDerecha = document.getElementById("mangaDerecha");
 const cuello = document.getElementById("cuello");
 
 torso.addEventListener("input", () => {
-
-    document
-    .getElementById("torsoSvg")
-    .setAttribute(
-        "fill",
-        torso.value
-    );
-
+    document.getElementById("torsoSvg").setAttribute("fill", torso.value);
 });
 
 mangaIzquierda.addEventListener("input", () => {
-
-    document
-    .getElementById("mangaIzquierdaSvg")
-    .setAttribute(
-        "fill",
-        mangaIzquierda.value
-    );
-
+    document.getElementById("mangaIzquierdaSvg").setAttribute("fill", mangaIzquierda.value);
 });
 
 mangaDerecha.addEventListener("input", () => {
-
-    document
-    .getElementById("mangaDerechaSvg")
-    .setAttribute(
-        "fill",
-        mangaDerecha.value
-    );
-
+    document.getElementById("mangaDerechaSvg").setAttribute("fill", mangaDerecha.value);
 });
 
 cuello.addEventListener("input", () => {
-
-    document
-    .getElementById("cuelloSvg")
-    .setAttribute(
-        "fill",
-        cuello.value
-    );
-
+    document.getElementById("cuelloSvg").setAttribute("fill", cuello.value);
 });
 
 console.log("Cargando diseños...");
@@ -54,7 +26,7 @@ async function cargarDiseños(){
 
     const respuesta =
     await fetch(
-        "https://camisaap.onrender.com"
+        "https://camisaap.onrender.com/camisetas"
     );
 
     const diseños =
@@ -133,104 +105,65 @@ async function guardarCamiseta() {
     localStorage.getItem("token");
 
     if (!token) {
-
-        alert(
-            "Debes iniciar sesión"
-        );
-
+        alert("Debes iniciar sesión");
         return;
     }
 
     const nombre =
-    document.getElementById(
-        "nombreDiseno"
-    ).value;
+    document.getElementById("nombreDiseno").value;
 
     const descripcion =
-    document.getElementById(
-        "descripcion"
-    ).value;
+    document.getElementById("descripcion").value;
 
     const respuesta =
     await fetch(
-        "https://camisaap.onrender.com",
+        "https://camisaap.onrender.com/camisetas",
         {
-
             method: "POST",
 
             headers: {
-
-                "Content-Type":
-                "application/json",
-
-                "Authorization":
-                "Bearer " + token
-
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + token
             },
 
             body: JSON.stringify({
-
                 nombre,
-
                 descripcion,
-
-                torso:
-                torso.value,
-
-                mangaIzquierda:
-                mangaIzquierda.value,
-
-                mangaDerecha:
-                mangaDerecha.value,
-
-                cuello:
-                cuello.value
-
+                torso: torso.value,
+                mangaIzquierda: mangaIzquierda.value,
+                mangaDerecha: mangaDerecha.value,
+                cuello: cuello.value
             })
-
         }
     );
 
-    const data =
-    await respuesta.json();
+    const data = await respuesta.json();
 
     console.log(data);
 
-    alert(
-        "Diseño guardado correctamente"
-    );
+    alert("Diseño guardado correctamente");
 
 }
 
 async function eliminarDiseño(id){
 
     const token =
-    localStorage.getItem(
-        "token"
-    );
+    localStorage.getItem("token");
 
     const respuesta =
     await fetch(
-
-        "https://camisaap.onrender.com"+id,
-
+        "https://camisaap.onrender.com/camisetas/" + id,
         {
             method:"DELETE",
-
             headers:{
-                Authorization:
-                "Bearer "+token
+                Authorization: "Bearer " + token
             }
         }
-
     );
 
-    const data =
-    await respuesta.json();
+    const data = await respuesta.json();
 
-    alert(
-        data.mensaje
-    );
+    alert(data.mensaje);
 
     cargarDiseños();
 
@@ -238,22 +171,16 @@ async function eliminarDiseño(id){
 
 function editarDiseño(id){
 
-    localStorage.setItem(
-        "camisetaEditar",
-        id
-    );
+    localStorage.setItem("camisetaEditar", id);
 
-    window.location =
-    "editar.html";
+    window.location = "editar.html";
 
 }
+
 function obtenerPayloadJWT(token){
 
-    const base64 =
-    token.split(".")[1];
+    const base64 = token.split(".")[1];
 
-    return JSON.parse(
-        atob(base64)
-    );
+    return JSON.parse(atob(base64));
 
 }

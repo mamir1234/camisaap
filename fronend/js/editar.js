@@ -5,7 +5,7 @@ cargarDiseño();
 async function cargarDiseño() {
 
     const respuesta =
-    await fetch("https://camisaap.onrender.com");
+    await fetch("https://camisaap.onrender.com/camisetas");
 
     const diseños =
     await respuesta.json();
@@ -18,23 +18,12 @@ async function cargarDiseño() {
         return;
     }
 
-    document.getElementById("nombreDiseno").value =
-    diseño.nombre;
-
-    document.getElementById("descripcion").value =
-    diseño.descripcion;
-
-    document.getElementById("torso").value =
-    diseño.torso;
-
-    document.getElementById("mangaIzquierda").value =
-    diseño.mangaIzquierda;
-
-    document.getElementById("mangaDerecha").value =
-    diseño.mangaDerecha;
-
-    document.getElementById("cuello").value =
-    diseño.cuello;
+    document.getElementById("nombreDiseno").value = diseño.nombre;
+    document.getElementById("descripcion").value = diseño.descripcion;
+    document.getElementById("torso").value = diseño.torso;
+    document.getElementById("mangaIzquierda").value = diseño.mangaIzquierda;
+    document.getElementById("mangaDerecha").value = diseño.mangaDerecha;
+    document.getElementById("cuello").value = diseño.cuello;
 
 }
 
@@ -45,7 +34,7 @@ async function guardarCambios() {
 
     const respuesta =
     await fetch(
-        "https://camisaap.onrender.com" + id,
+        "https://camisaap.onrender.com/camisetas/" + id,
         {
             method: "PUT",
 
@@ -55,35 +44,20 @@ async function guardarCambios() {
             },
 
             body: JSON.stringify({
-
-                nombre:
-                document.getElementById("nombreDiseno").value,
-
-                descripcion:
-                document.getElementById("descripcion").value,
-
-                torso:
-                document.getElementById("torso").value,
-
-                mangaIzquierda:
-                document.getElementById("mangaIzquierda").value,
-
-                mangaDerecha:
-                document.getElementById("mangaDerecha").value,
-
-                cuello:
-                document.getElementById("cuello").value
-
+                nombre: document.getElementById("nombreDiseno").value,
+                descripcion: document.getElementById("descripcion").value,
+                torso: document.getElementById("torso").value,
+                mangaIzquierda: document.getElementById("mangaIzquierda").value,
+                mangaDerecha: document.getElementById("mangaDerecha").value,
+                cuello: document.getElementById("cuello").value
             })
         }
     );
 
-    const data =
-    await respuesta.json();
+    const data = await respuesta.json();
 
     alert("Diseño actualizado");
 
-    window.location =
-    "camisas.html";
+    window.location = "camisas.html";
 
 }
