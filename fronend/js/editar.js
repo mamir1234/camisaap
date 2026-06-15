@@ -5,7 +5,7 @@ cargarDiseño();
 async function cargarDiseño() {
 
     const respuesta =
-    await fetch("http://localhost:3000/camisetas");
+    await fetch("https://camisaap.onrender.com");
 
     const diseños =
     await respuesta.json();

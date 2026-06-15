@@ -1,7 +1,7 @@
 async function registrar(){
 
 const respuesta = await fetch(
-"http://localhost:3000/usuarios",
+"https://camisaap.onrender.coms",
 {
 method:"POST",
 
