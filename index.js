@@ -1,3 +1,4 @@
+//nipi
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -81,6 +82,7 @@ app.post("/usuarios", async (req, res) => {
 
 
 // VER USUARIOS
+
 app.get("/usuarios", async (req, res) => {
   try {
     const usuarios = await Usuario.find();
