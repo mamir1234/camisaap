@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Camisetas</title>
+<link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+
+<div class="contenedor">
+
+<h1>Diseñador</h1>
+
+<label>Nombre del diseño</label>
+
+<input
+type="text"
+id="nombreDiseno"
+placeholder="Ej: Camisa de mamir">
+
+<label>Descripción</label>
+
+<textarea
+id="descripcion"
+placeholder="Describe tu diseño">
+</textarea>
+
+<label>Torso</label>
+<input type="color" id="torso" value="#ffffff">
+
+<label>Manga izquierda</label>
+<input type="color" id="mangaIzquierda" value="#ffffff">
+
+<label>Manga derecha</label>
+<input type="color" id="mangaDerecha" value="#ffffff">
+
+<label>Cuello</label>
+<input type="color" id="cuello" value="#cccccc">
+
+<div class="camiseta-container">
+
+<svg width="300" height="320" viewBox="0 0 300 320">
+
+    <!-- Manga izquierda -->
+    <polygon
+        id="mangaIzquierdaSvg"
+        points="40,60 90,40 90,120 20,130"
+        fill="#ffffff"
+    />
+
+    <!-- Manga derecha -->
+    <polygon
+        id="mangaDerechaSvg"
+        points="210,40 260,60 280,130 210,120"
+        fill="#ffffff"
+    />
+
+    <!-- Torso -->
+    <rect
+        id="torsoSvg"
+        x="90"
+        y="40"
+        width="120"
+        height="220"
+        rx="10"
+        fill="#ffffff"
+    />
+
+    <!-- Cuello -->
+    <ellipse
+        id="cuelloSvg"
+        cx="150"
+        cy="55"
+        rx="25"
+        ry="12"
+        fill="#cccccc"
+    />
+
+</svg>
+
+</div>
+
+<button onclick="guardarCamiseta()">
+Guardar diseño
+</button>
+
+<h2>
+Diseños de la comunidad
+</h2>
+
+<div id="listaDiseños">
+
+</div>
+
+</div>
+
+</body>
+<script src="js/camisas.js"></script>
+</html>

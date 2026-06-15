@@ -1,0 +1,223 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root{
+    --cream:#F7F5F2;
+    --sand:#E7E0D6;
+    --taupe:#B6AA9C;
+    --stone:#8B8178;
+    --charcoal:#2F2F2F;
+    --white:#FFFFFF;
+
+    --shadow:0 8px 25px rgba(0,0,0,0.08);
+    --shadow-hover:0 12px 35px rgba(0,0,0,0.12);
+    --radius:16px;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        var(--cream),
+        var(--sand)
+    );
+
+    color:var(--charcoal);
+    padding-bottom:40px;
+}
+
+.contenedor{
+    width:90%;
+    max-width:550px;
+    margin:60px auto;
+
+    background:rgba(255,255,255,0.9);
+
+    border:1px solid rgba(0,0,0,0.05);
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+    transition:0.3s ease;
+}
+
+.contenedor:hover{
+    box-shadow:var(--shadow-hover);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+
+    color:var(--charcoal);
+
+    font-size:2rem;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+input{
+    width:100%;
+
+    padding:14px 16px;
+
+    margin:10px 0;
+
+    border:1px solid #d8d2ca;
+
+    border-radius:12px;
+
+    background:var(--white);
+
+    color:var(--charcoal);
+
+    font-size:1rem;
+
+    transition:0.3s ease;
+}
+
+input:focus{
+    outline:none;
+
+    border-color:var(--taupe);
+
+    box-shadow:0 0 0 4px rgba(182,170,156,0.2);
+}
+
+button{
+    width:100%;
+
+    padding:14px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--stone);
+
+    color:white;
+
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all 0.3s ease;
+}
+
+button:hover{
+    background:var(--charcoal);
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+a{
+    color:var(--stone);
+
+    text-decoration:none;
+
+    font-weight:500;
+
+    transition:0.3s;
+}
+
+a:hover{
+    color:var(--charcoal);
+}
+
+.menu{
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin-top:25px;
+
+    flex-wrap:wrap;
+}
+
+.camiseta-container{
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:35px;
+}
+
+svg{
+    filter:
+    drop-shadow(
+        0 8px 15px rgba(0,0,0,0.12)
+    );
+
+    transition:0.3s ease;
+}
+
+svg:hover{
+    transform:scale(1.03);
+}
+
+#listaDiseños{
+    margin-top:35px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:22px;
+}
+
+.card-diseño{
+    background:var(--white);
+
+    border:1px solid #e5e0da;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:0.3s ease;
+}
+
+.card-diseño:hover{
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-hover);
+}
+
+.card-diseño h3{
+    margin-bottom:10px;
+
+    color:var(--charcoal);
+}
+
+.card-diseño p{
+    color:var(--stone);
+
+    line-height:1.5;
+}
+
+.card-diseño svg{
+    display:block;
+
+    margin:auto;
+
+    margin-top:15px;
+}
