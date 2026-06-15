@@ -45,7 +45,7 @@ async function guardarCambios() {
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/camisetas/" + id,
+        "https://camisaap.onrender.com" + id,
         {
             method: "PUT",
 

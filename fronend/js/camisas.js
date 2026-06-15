@@ -54,7 +54,7 @@ async function cargarDiseños(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/camisetas"
+        "https://camisaap.onrender.com"
     );
 
     const diseños =
@@ -153,7 +153,7 @@ async function guardarCamiseta() {
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/camisetas",
+        "https://camisaap.onrender.com",
         {
 
             method: "POST",
@@ -212,7 +212,7 @@ async function eliminarDiseño(id){
     const respuesta =
     await fetch(
 
-        "http://localhost:3000/camisetas/"+id,
+        "https://camisaap.onrender.com"+id,
 
         {
             method:"DELETE",
